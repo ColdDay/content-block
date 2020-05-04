@@ -1,0 +1,65 @@
+html,body{
+    max-height: 500px;
+    overflow: hidden;
+}
+.main{
+    width: 400px;
+    overflow: hidden;
+    max-height: 800px;
+}
+.tab-container{
+    display: flex;
+}
+.tab-item{
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    /* background-color: ; */
+    border-bottom: 2px solid #ccc;
+    cursor: pointer;
+}
+.tab-item.active{
+    border-bottom: 2px solid blue;
+}
+.content{
+    display: none;
+}
+.content.active{
+    display: block;
+}
+.content{
+    padding: 20px 0;
+    margin: 0;
+    max-height: 360px;
+    overflow: auto;
+}
+.content li{
+    margin: 0;
+    list-style: none;
+}
+.block-item{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 4px;
+}
+.index{
+    display: inline-block;
+    padding: 0 4px;
+    width: 20px;
+}
+.block-item a{
+    flex: 1;
+    color: blue;
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 320px;
+    overflow: hidden;
+}
+.block-item .del{
+    width: 80px;
+    cursor: pointer;
+    color: coral;
+    text-align: center;
+}
