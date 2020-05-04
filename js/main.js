@@ -109,6 +109,9 @@ let myRequest = {
         xhr.onload = (...args) => {
           if (myRequest.config.switch) {
             handleResponse();
+            setTimeout(function() {
+              window.scrollTo(0,window.scrollY + 1)
+            }, 100)
           }
           this.onload && this.onload.apply(this, args);
         }
