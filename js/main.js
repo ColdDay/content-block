@@ -70,6 +70,7 @@ let myRequest = {
     const handleResponse = () => {  
       
       var resp = JSON.parse(this.responseText || "{}");
+      console.log(resp)
       if (this.responseURL.match(myRequest.config.articleUrl) && resp && resp.data && resp.data.articleFeed) {
         const edges = resp.data.articleFeed.items.edges;
         const blockData = JSON.parse(localStorage.getItem('block-data') || "[]")
@@ -94,8 +95,9 @@ let myRequest = {
         this.responseText = JSON.stringify(resp);
       }
     }
-    // new 一个原生的 XMLHttpRequest 不需要参数,将 xhr 的属性,都复制给this,暴露到外面
     const xhr = new myRequest.originalXHR;
+
+    
     for (let attr in xhr) {
       if (attr === 'onreadystatechange') {
         xhr.onreadystatechange = (...args) => {
@@ -122,10 +124,9 @@ let myRequest = {
         this[attr] = xhr[attr].bind(xhr);
       } else {
         if (attr === 'responseText' || attr === 'response') {
-          var k = "_" + attr;
           Object.defineProperty(this, attr, {
-            get: () => this[k] == undefined ? xhr[attr] : this[k],
-            set: (val) => this[k] = val,
+            get: () => this[`_${attr}`] == undefined ? xhr[attr] : this[`_${attr}`],
+            set: (val) => this[`_${attr}`] = val,
             enumerable: true
           });
         } else {
@@ -140,8 +141,14 @@ let myRequest = {
   }
 }
 
-if (myRequest.config.switch) {
-  window.XMLHttpRequest = myRequest.myXHR;
-} else {
-  window.XMLHttpRequest = myRequest.originalXHR;
+
+initXml();
+function initXml() {
+  if (location.href.match('editor')) {
+    window.XMLHttpRequest = myRequest.originalXHR;
+    
+  } else {
+    window.XMLHttpRequest = myRequest.myXHR;
+  }
+  
 }
