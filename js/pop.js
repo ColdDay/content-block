@@ -26,9 +26,7 @@ function eventInit() {
     parent.onclick = function(e){
         var newList = [];
         if(e.target.tagName.toLocaleLowerCase() === "span"){
-            var type = e.target.getAttribute('type');
             var id = e.target.getAttribute('id');
-            console.log("您点击了child元素", id);
             blockList.map((item) => {
                 if (item.id != id) {
                     newList.push(item)
