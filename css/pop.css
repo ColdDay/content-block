@@ -6,6 +6,7 @@ html,body{
     width: 400px;
     overflow: hidden;
     max-height: 800px;
+    text-align: center;
 }
 .tab-container{
     display: flex;
@@ -24,6 +25,7 @@ html,body{
 }
 .content{
     display: none;
+    text-align: left;
 }
 .content.active{
     display: block;
