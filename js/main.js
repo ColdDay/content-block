@@ -4,7 +4,7 @@
   }
   
   var rawOpen = XMLHttpRequest.prototype.open;
-  function handleResponse (xhr, responseText) {  
+  function filterResponse (xhr, responseText) {  
     var resp = JSON.parse(responseText || "{}");
     if (xhr.myRequestType == 'article' && resp.data && resp.data.articleFeed) {
       const edges = resp.data.articleFeed.items.edges;
@@ -37,7 +37,7 @@
       var ret = xhr.responseText;
       setup();
       if (xhr.myRequestType) {
-        return handleResponse(xhr, ret)
+        return filterResponse(xhr, ret)
       } else {
         return ret
       }

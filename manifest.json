@@ -24,7 +24,7 @@
 	  [
       {
               "matches": ["https://juejin.im/*", "http://www.mofazhuan.com/*"],
-              "js": ["js/event_init.js", "js/bridge.js"],
+              "js": ["js/content.js", "js/bridge.js"],
               "css": ["css/index.css"],
               "run_at": "document_start"
       }
