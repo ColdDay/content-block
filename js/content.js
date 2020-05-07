@@ -14,7 +14,7 @@
       userName = document.querySelector('.username').innerText;
       postUrl = location.href;
       postName = document.querySelector('.article-title').innerText.trim();
-    } else if (location.href.match('im/timeline/')) {
+    } else if (location.href.match('im/timeline')) {
       // 首页文章列表
       var parentEle = targetEle.closest('.item');
       if (!parentEle) return null;
