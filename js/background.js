@@ -1,7 +1,9 @@
+
 chrome.contextMenus.create({
     type: 'normal',
     title: '内容屏蔽',
     id: 'menuDemo',
+    documentUrlPatterns: ['https://juejin.im/*'],
     contexts: ['all']
 }, function () {
     
@@ -13,6 +15,7 @@ chrome.contextMenus.create({
     id: 'user',
     contexts: ['all'],
     parentId: 'menuDemo',
+    documentUrlPatterns: ['https://juejin.im/*'],
     onclick: blockUser
 }, function () {
 });
@@ -23,6 +26,7 @@ chrome.contextMenus.create({
     id: 'article',
     contexts: ['all'],
     parentId: 'menuDemo',
+    documentUrlPatterns: ['https://juejin.im/*'],
     onclick: blockArticle
 }, function () {
     
